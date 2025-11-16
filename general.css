@@ -179,9 +179,17 @@ li {
   gap: 10px;
   justify-content: center;
   align-items: center;
-  max-width: 68ch;
+  max-width: 100%; /* let container shrink */
   margin-bottom: 40px;
+  flex-wrap: wrap; /* wrap to new line if screen is too small */
 }
+
+.kompetencer img {
+  width: 18%; /* or something around 15-20% depending on how many logos */
+  max-width: 100px; /* prevent logos from being too big on desktop */
+  height: auto; /* maintain aspect ratio */
+}
+
 /* 1) Ensure the parent (main) or the flex item that holds .scroll can shrink */
 .main,
 .container,
