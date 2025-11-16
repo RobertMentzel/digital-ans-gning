@@ -177,7 +177,7 @@ li {
   display: flex;
   flex-direction: row;
   gap: 10px;
-  justify-items: end;
+  justify-content: center;
   align-items: center;
   max-width: 68ch;
   margin-bottom: 40px;
