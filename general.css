@@ -93,6 +93,7 @@ p {
   place-items: center;
   margin-bottom: 40px;
   max-width: 400px;
+  margin-top: 40px;
 }
 .profil img {
   object-fit: cover;
