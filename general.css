@@ -12,17 +12,20 @@ img {
 }
 
 body {
-  background-color: rgb(219, 219, 219);
-  /* background: url(baggrundsbillede.jpg); */
-  background-repeat: no-repeat;
-  background-size: cover; /* or contain, depending on need */
-  background-attachment: fixed; /* this makes it stay while scrolling */
-  /* background-position: ; */
-  background-position: right 35% top 30%;
-}
+  background-color: #2e000f;
 
+  /*
+  background-color: rgb(219, 219, 219);
+   background: url(baggrundsbillede.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-attachment: fixed; 
+   background-position: ; 
+  background-position: right 35% top 30%;
+
+ */
+}
 .hero {
-  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -31,13 +34,17 @@ body {
 }
 .hero h1 {
   font-size: 4rem;
-  color: rgb(0, 0, 0);
+  color: #2e000f;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 main {
-  background-color: rgba(255, 255, 255, 0.8);
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  background-color: #fffbbe;
   padding: 30px;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1,
@@ -54,27 +61,31 @@ li {
 h1 {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #333;
+  /* color: #333; */
+  color: #2e000f;
   margin-bottom: 1rem;
 }
 
 h2 {
   font-size: 2rem;
   font-weight: 700;
-  color: #555;
+  /* color: #555; */
+  color: #2e000f;
   margin-bottom: 0.75rem;
   place-content: center;
 }
 h3 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #777;
+  /* color: #777; */
+  color: #2e000f;
   margin-bottom: 0.5rem;
 }
 
 p,
 li {
-  color: #2c2c2c;
+  /* color: #2c2c2c; */
+  color: #2e000f;
 }
 p,
 a,
@@ -104,12 +115,12 @@ p {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
   object-position: 20% 30%;
-  border: 5px solid #ccc;
+  border: 5px solid #2e000f;
   border-bottom: none;
 }
 
 .text {
-  border: 5px solid #ccc;
+  border: 5px solid #2e000f;
   border-top: none;
   display: block;
   height: fit-content;
@@ -130,9 +141,9 @@ p {
   justify-content: center;
 } */
 footer {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #fffbbe;
   padding: 30px;
-  border-top: 2px solid #8b8b8b;
+  border-top: 2px solid #6b4242;
 }
 
 li {
@@ -141,7 +152,7 @@ li {
 }
 
 .uddannelse {
-  border-left: 2px solid #8b8b8b;
+  border-left: 2px solid #2e000f;
 }
 
 .intro {
@@ -152,8 +163,85 @@ li {
   margin-bottom: 40px;
 }
 
-.projekter {
+.evner {
   margin-bottom: 40px;
+}
+.mine_projekter div {
+  max-width: 68ch;
+  margin-bottom: 60px;
+}
+.mine_projekter img {
+  margin-bottom: 20px;
+}
+.kompetencer {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-items: end;
+  align-items: center;
+  max-width: 68ch;
+  margin-bottom: 40px;
+}
+/* 1) Ensure the parent (main) or the flex item that holds .scroll can shrink */
+.main,
+.container,
+.your-parent-class {
+  /* Replace .your-parent-class with the actual parent if needed */
+  min-width: 0; /* <- critical for flex layouts */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 2) Constrain the scroll area to the parent's width */
+.scroll {
+  position: relative;
+  display: flex;
+  width: 100%; /* don't grow beyond parent */
+  max-width: 100%; /* extra insurance */
+  box-sizing: border-box;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 20px;
+  margin-bottom: 40px;
+
+  /* hide scrollbar */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* 3) Make sure the images are treated as shrinkable flex children */
+.scroll img {
+  flex: 0 0 auto; /* fixed size items that do not force container width */
+  width: 300px; /* or whatever fixed slide width you want */
+  height: 200px;
+  object-fit: cover;
+  scroll-snap-align: start;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+/* 4) Decorative arrows (won't affect box sizing) */
+.scroll::before,
+.scroll::after {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  color: rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+  user-select: none;
+}
+.scroll::before {
+  content: "‹";
+  left: 10px;
+}
+.scroll::after {
+  content: "›";
+  right: 10px;
 }
 
 @media (min-width: 768px) {
@@ -174,7 +262,7 @@ li {
     border-bottom-right-radius: 20%;
     border-bottom-left-radius: 0;
     object-position: 20% 30%;
-    border: 5px solid #ccc;
+    border: 5px solid #2e000f;
     border-right: none;
   }
   .text {
@@ -189,22 +277,34 @@ li {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    margin: 0 50px 0 50px;
   }
   .erfaring {
     display: grid;
   }
-  .projekter {
+  .evner {
     display: grid;
   }
   .erfaring h3 {
     justify-self: center;
   }
-  .projekter h3 {
+  .evner h3 {
     justify-self: center;
   }
   footer {
     display: flex;
+
     flex-direction: row;
     justify-content: space-evenly;
+  }
+}
+@media (min-width: 1200px) {
+  .mine_projekter {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  .mine_projekter img {
+    max-width: 68ch;
   }
 }
